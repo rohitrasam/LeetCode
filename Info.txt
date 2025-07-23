@@ -1,0 +1,11 @@
+1. Backtracking:
+    - Is simply brute forcing each and every choice.
+    - Always uses recursion to solve problem
+    - Follows DFS
+    Use when:
+    - The problem requires exploring all possible combinations or arrangements.
+    - You must try, test, and revert (undo) choices that lead to dead ends (i.e., invalid states).
+    - There are constraints involved, and not all paths need to be explored if a 
+        certain condition fails early.
+    - The solution involves constructing partial candidates and pruning those 
+        that don’t satisfy the condition.
