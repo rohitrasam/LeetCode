@@ -324,5 +324,5 @@
 
 
 # temp(1, 0, 1, 2, 3, a=2, b=4)
-a = list(range(100))
-print(a)
+# a = list(range(100))
+# print(a)
