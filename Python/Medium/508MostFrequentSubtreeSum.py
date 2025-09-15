@@ -47,7 +47,7 @@ def findFrequentTreeSum(root: Optional[TreeNode]) -> List[int]:
 
     sum_count: DefaultDict = defaultdict(int)
 
-    def dfs(curr: Optional[TreeNode]) -> None:
+    def dfs(curr: Optional[TreeNode]) -> int:
         if not curr:
             return 0
 
