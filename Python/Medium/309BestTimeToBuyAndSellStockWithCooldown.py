@@ -7,26 +7,26 @@ from typing import Dict, List, Tuple
 def maxProfit(prices: List[int]) -> int:
 
     """ Neetcode solution """
-    # dp: Dict[Tuple[int, bool], int] = {}
+    dp: Dict[Tuple[int, bool], int] = {}
     
-    # def dfs(i: int, buying: bool) -> int:
-    #     if i >= len(prices):
-    #         return 0
-    #     if (i, buying) in dp:
-    #         return dp[(i, buying)]
+    def dfs(i: int, buying: bool) -> int:
+        if i >= len(prices):
+            return 0
+        if (i, buying) in dp:
+            return dp[(i, buying)]
 
 
-    #     cooldown = dfs(i+1, buying)
-    #     if buying:
-    #         buy = dfs(i+1, not buying) - prices[i]
-    #         dp[(i, buying)] = max(buy, cooldown)
-    #     else:
-    #         sell = dfs(i+2, not buying) + prices[i]
-    #         dp[(i, buying)] = max(sell, cooldown)
+        cooldown = dfs(i+1, buying)
+        if buying:
+            buy = dfs(i+1, not buying) - prices[i]
+            dp[(i, buying)] = max(buy, cooldown)
+        else:
+            sell = dfs(i+2, not buying) + prices[i]
+            dp[(i, buying)] = max(sell, cooldown)
 
-    #     return dp[(i, buying)]
+        return dp[(i, buying)]
 
-    # return dfs(0, True)
+    return dfs(0, True)
 
     """ Solution: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/comments/1725067/ """
     
