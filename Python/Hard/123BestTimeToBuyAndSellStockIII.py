@@ -5,29 +5,21 @@ from typing import List
 
 
 def maxProfit(prices: List[int]) -> int:
-    profit1 = prices[0]
-    profit2 = prices[1]
-    buy = prices[0]
+    s1, s2, s3, s4 = -prices[0], float("-inf"), float("-inf"), float("-inf")
 
     for price in prices[1:]:
-        if buy < price:
-            if abs(profit1 - (price-buy)) > abs(profit2 - (price-buy)):
-                profit1 = price - buy
-            elif abs(profit1 - (price-buy)) < abs(profit2 - (price-buy)):
-                profit2 = price - buy
+        s1 = max(s1, -price)
+        s2 = max(s2, price + s1)
+        s3 = max(s3, s2 - price)
+        s4 = max(s4, s3 + price)
 
-        buy = min(buy, price)
-    return profit1 + profit2
-    
+    return max(s4, 0)
 
 
-
-if __name__ == '__main__':
-
-
-    case = [3,3,5,0,0,3,1,4]
+if __name__ == "__main__":
+    case = [3, 3, 5, 0, 0, 3, 1, 4]
     print(maxProfit(case))
-    case = [1,2,3,4,5]
+    case = [1, 2, 3, 4, 5]
     print(maxProfit(case))
-    case = [7,6,4,3,1]
+    case = [7, 6, 4, 3, 1]
     print(maxProfit(case))
