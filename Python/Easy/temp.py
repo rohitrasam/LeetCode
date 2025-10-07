@@ -326,3 +326,22 @@
 # temp(1, 0, 1, 2, 3, a=2, b=4)
 # a = list(range(100))
 # print(a)
+
+# from typing import Callable
+
+# def func(func1: Callable[[str], None]) -> None:
+#     func1("Hola!!")
+
+# def hello(string: str) -> None:
+#     print(string)
+
+# func(hello)
+
+from datetime import datetime
+
+def get_time() -> str:
+    now: datetime = datetime.now()
+    # return now.strftime("%d-%m-%Y, %H:%M:%S")
+    return f"{now:%X}"
+
+print(get_time())
